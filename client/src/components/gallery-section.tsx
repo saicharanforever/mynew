@@ -31,14 +31,14 @@ export default function GallerySection() {
           </p>
         </div>
 
-        <div style={{ height: '600px', position: 'relative' }}>
+        <div className="h-[400px] md:h-[600px] relative w-full">
           <CircularGallery 
             items={galleryItems}
-            bend={3} 
+            bend={1.5} 
             textColor="#D4AF37" 
             borderRadius={0.05} 
             scrollEase={0.02}
-            font="bold 24px Playfair Display"
+            font="bold 18px Playfair Display"
           />
         </div>
       </div>

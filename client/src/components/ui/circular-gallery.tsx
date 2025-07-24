@@ -93,10 +93,13 @@ class Title {
     });
     this.mesh = new Mesh(this.gl, { geometry, program });
     const aspect = width / height;
-    const textHeight = this.plane.scale.y * 0.15;
+    // Mobile responsive text sizing
+    const isMobile = window.innerWidth < 768;
+    const textScale = isMobile ? 0.12 : 0.15;
+    const textHeight = this.plane.scale.y * textScale;
     const textWidth = textHeight * aspect;
     this.mesh.scale.set(textWidth, textHeight, 1);
-    this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.05;
+    this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - (isMobile ? 0.03 : 0.05);
     this.mesh.setParent(this.plane);
   }
 }
@@ -301,11 +304,18 @@ class Media {
         this.plane.program.uniforms.uViewportSizes.value = [this.viewport.width, this.viewport.height];
       }
     }
-    this.scale = this.screen.height / 1500;
-    this.plane.scale.y = (this.viewport.height * (900 * this.scale)) / this.screen.height;
-    this.plane.scale.x = (this.viewport.width * (700 * this.scale)) / this.screen.width;
+    
+    // Mobile-responsive scaling
+    const isMobile = this.screen.width < 768;
+    this.scale = isMobile ? this.screen.height / 800 : this.screen.height / 1500;
+    
+    const heightScale = isMobile ? 600 : 900;
+    const widthScale = isMobile ? 400 : 700;
+    
+    this.plane.scale.y = (this.viewport.height * (heightScale * this.scale)) / this.screen.height;
+    this.plane.scale.x = (this.viewport.width * (widthScale * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    this.padding = 2;
+    this.padding = isMobile ? 1.5 : 2;
     this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
@@ -389,11 +399,11 @@ class App {
       { image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Intimate Atmosphere" },
       { image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Interior Design" },
       { image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Wine Collection" },
-      { image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Culinary Excellence" },
-      { image: "https://images.unsplash.com/photo-1572441713132-51c75654db73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Signature Dishes" },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
-    this.mediasImages = galleryItems.concat(galleryItems);
+    // For mobile, don't duplicate items to avoid too many images
+    const isMobile = this.container.clientWidth < 768;
+    this.mediasImages = isMobile ? galleryItems : galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
         geometry: this.planeGeometry,
@@ -420,8 +430,10 @@ class App {
   }
   onTouchMove(e: any) {
     if (!this.isDown) return;
+    e.preventDefault(); // Prevent default touch behavior
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const sensitivity = window.innerWidth < 768 ? 0.04 : 0.025; // Higher sensitivity on mobile
+    const distance = (this.start - x) * (this.scrollSpeed * sensitivity);
     this.scroll.target = this.scroll.position! + distance;
   }
   onTouchUp() {
@@ -430,7 +442,8 @@ class App {
   }
   onWheel(e: any) {
     const delta = e.deltaY || e.wheelDelta || e.detail;
-    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+    const scrollMultiplier = window.innerWidth < 768 ? 0.3 : 0.2; // Adjust scroll speed for mobile
+    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * scrollMultiplier;
     this.onCheckDebounce();
   }
   onCheck() {
