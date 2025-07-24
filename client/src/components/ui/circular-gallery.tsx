@@ -131,8 +131,6 @@ class Media {
   speed: number = 0;
   isBefore: boolean = false;
   isAfter: boolean = false;
-  originalScaleX?: number;
-  originalScaleY?: number;
 
   constructor({
     geometry,
@@ -262,50 +260,22 @@ class Media {
 
     const x = this.plane.position.x;
     const H = this.viewport.width / 2;
-    const isMobile = window.innerWidth < 768;
 
     if (this.bend === 0) {
       this.plane.position.y = 0;
       this.plane.rotation.z = 0;
     } else {
-      if (isMobile) {
-        // Mobile: Create uniform circular motion
-        const radius = this.viewport.width * 0.25; // Optimized radius for mobile
-        const normalizedPosition = (this.x - scroll.current - this.extra) / this.widthTotal;
-        const angle = normalizedPosition * 2 * Math.PI;
-        
-        // Create circular positions
-        this.plane.position.x = Math.sin(angle) * radius;
-        this.plane.position.y = -Math.cos(angle) * radius * 0.4; // Flatten vertically for better view
-        this.plane.rotation.z = angle * 0.5; // Subtle rotation for 3D effect
-        
-        // Scale based on depth for 3D effect - items further back are smaller
-        const depth = Math.cos(angle);
-        const baseScale = isMobile ? 0.9 : 1.0;
-        const scale = baseScale + 0.15 * depth;
-        
-        // Store original scale to restore
-        if (!this.originalScaleX) {
-          this.originalScaleX = this.plane.scale.x;
-          this.originalScaleY = this.plane.scale.y;
-        }
-        
-        this.plane.scale.x = this.originalScaleX * scale;
-        this.plane.scale.y = this.originalScaleY * scale;
-      } else {
-        // Desktop: Keep original curved layout
-        const B_abs = Math.abs(this.bend);
-        const R = (H * H + B_abs * B_abs) / (2 * B_abs);
-        const effectiveX = Math.min(Math.abs(x), H);
+      const B_abs = Math.abs(this.bend);
+      const R = (H * H + B_abs * B_abs) / (2 * B_abs);
+      const effectiveX = Math.min(Math.abs(x), H);
 
-        const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
-        if (this.bend > 0) {
-          this.plane.position.y = -arc;
-          this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
-        } else {
-          this.plane.position.y = arc;
-          this.plane.rotation.z = Math.sign(x) * Math.asin(effectiveX / R);
-        }
+      const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
+      if (this.bend > 0) {
+        this.plane.position.y = -arc;
+        this.plane.rotation.z = -Math.sign(x) * Math.asin(effectiveX / R);
+      } else {
+        this.plane.position.y = arc;
+        this.plane.rotation.z = Math.sign(x) * Math.asin(effectiveX / R);
       }
     }
 
@@ -339,24 +309,14 @@ class Media {
     const isMobile = this.screen.width < 768;
     this.scale = isMobile ? this.screen.height / 800 : this.screen.height / 1500;
     
-    const heightScale = isMobile ? 500 : 900; // Smaller height for better circular view on mobile
-    const widthScale = isMobile ? 350 : 700;
+    const heightScale = isMobile ? 600 : 900;
+    const widthScale = isMobile ? 400 : 700;
     
     this.plane.scale.y = (this.viewport.height * (heightScale * this.scale)) / this.screen.height;
     this.plane.scale.x = (this.viewport.width * (widthScale * this.scale)) / this.screen.width;
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
-    
-    if (isMobile) {
-      // For circular motion, spacing is based on circumference
-      const radius = this.viewport.width * 0.3;
-      const circumference = 2 * Math.PI * radius;
-      this.width = circumference / this.length;
-      this.padding = 0;
-    } else {
-      this.padding = 2;
-      this.width = this.plane.scale.x + this.padding;
-    }
-    
+    this.padding = isMobile ? 1.5 : 2;
+    this.width = this.plane.scale.x + this.padding;
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }
@@ -441,11 +401,9 @@ class App {
       { image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Wine Collection" },
     ];
     const galleryItems = items && items.length ? items : defaultItems;
+    // For mobile, don't duplicate items to avoid too many images
     const isMobile = this.container.clientWidth < 768;
-    
-    // For mobile circular motion, we need to ensure smooth infinite scrolling
-    this.mediasImages = isMobile ? galleryItems.concat(galleryItems, galleryItems) : galleryItems.concat(galleryItems);
-    
+    this.mediasImages = isMobile ? galleryItems : galleryItems.concat(galleryItems);
     this.medias = this.mediasImages.map((data, index) => {
       return new Media({
         geometry: this.planeGeometry,
