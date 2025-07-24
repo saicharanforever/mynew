@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { FaCampground, FaFire, FaTint, FaHotTub, FaHiking } from 'react-icons/fa';
+import { FaUtensils, FaWineGlass, FaLeaf, FaStar, FaHeart } from 'react-icons/fa';
 
-const InteractiveSelector = () => {
+const CompactSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animatedOptions, setAnimatedOptions] = useState<number[]>([]);
   
   const options = [
     {
-      title: "Luxury Tent",
-      description: "Cozy glamping under the stars",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-      icon: <FaCampground size={24} className="text-white" />
+      title: "Chef's Tasting",
+      description: "Multi-course culinary journey",
+      image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      icon: <FaUtensils size={24} className="text-white" />
     },
     {
-      title: "Campfire Feast",
-      description: "Gourmet s'mores & stories",
-      image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
-      icon: <FaFire size={24} className="text-white" />
+      title: "Wine Pairing",
+      description: "Premium selections & pairings",
+      image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      icon: <FaWineGlass size={24} className="text-white" />
     },
     {
-      title: "Lakeside Retreat",
-      description: "Private dock & canoe rides",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      icon: <FaTint size={24} className="text-white" />
+      title: "Farm to Table",
+      description: "Seasonal organic ingredients",
+      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      icon: <FaLeaf size={24} className="text-white" />
     },
     {
-      title: "Mountain Spa",
-      description: "Outdoor sauna & hot tub",
-      image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
-      icon: <FaHotTub size={24} className="text-white" />
+      title: "Private Dining",
+      description: "Exclusive intimate experience",
+      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      icon: <FaStar size={24} className="text-white" />
     },
     {
-      title: "Guided Adventure",
-      description: "Expert-led nature tours",
-      image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80",
-      icon: <FaHiking size={24} className="text-white" />
+      title: "Romance Package",
+      description: "Perfect for special occasions",
+      image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      icon: <FaHeart size={24} className="text-white" />
     }
   ];
 
@@ -60,15 +60,7 @@ const InteractiveSelector = () => {
   }, []);
 
   return (
-    <div id="experiences" className="relative flex flex-col items-center justify-center py-10 bg-[#222] font-sans text-white"> 
-      {/* Header Section */}
-      <div className="w-full max-w-2xl px-6 mb-2 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">Escape in Style</h1>
-        <p className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto animate-fadeInTop delay-600">Discover luxurious camping experiences in nature's most breathtaking spots.</p>
-      </div>
-
-      <div className="h-12"></div>
-
+    <div className="relative flex flex-col items-center justify-center py-10 bg-[#222] font-sans text-white"> 
       {/* Options Container */}
       <div className="options flex w-full max-w-[900px] min-w-[600px] h-[400px] mx-0 items-stretch overflow-hidden relative">
         {options.map((option, index) => (
@@ -91,11 +83,11 @@ const InteractiveSelector = () => {
               borderRadius: 0,
               borderWidth: '2px',
               borderStyle: 'solid',
-              borderColor: activeIndex === index ? '#fff' : '#292929',
+              borderColor: activeIndex === index ? '#D4AF37' : '#292929',
               cursor: 'pointer',
               backgroundColor: '#18181b',
               boxShadow: activeIndex === index 
-                ? '0 20px 60px rgba(0,0,0,0.50)' 
+                ? '0 20px 60px rgba(212, 175, 55, 0.30)' 
                 : '0 10px 30px rgba(0,0,0,0.30)',
               flex: activeIndex === index ? '7 1 0%' : '1 1 0%',
               zIndex: activeIndex === index ? 10 : 1,
@@ -122,7 +114,13 @@ const InteractiveSelector = () => {
             
             {/* Label with icon and info */}
             <div className="label absolute left-0 right-0 bottom-5 flex items-center justify-start h-12 z-2 pointer-events-none px-4 gap-3 w-full">
-              <div className="icon min-w-[44px] max-w-[44px] h-[44px] flex items-center justify-center rounded-full bg-[rgba(32,32,32,0.85)] backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border-2 border-[#444] flex-shrink-0 flex-grow-0 transition-all duration-200">
+              <div 
+                className="icon min-w-[44px] max-w-[44px] h-[44px] flex items-center justify-center rounded-full backdrop-blur-[10px] shadow-[0_1px_4px_rgba(0,0,0,0.18)] border-2 flex-shrink-0 flex-grow-0 transition-all duration-200"
+                style={{
+                  backgroundColor: 'rgba(32,32,32,0.85)',
+                  borderColor: activeIndex === index ? '#D4AF37' : '#444'
+                }}
+              >
                 {option.icon}
               </div>
               <div className="info text-white whitespace-pre relative">
@@ -162,34 +160,9 @@ const InteractiveSelector = () => {
             transform: translateX(0);
           }
         }
-        
-        @keyframes fadeInFromTop {
-          0% {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fadeInTop {
-          opacity: 0;
-          transform: translateY(-20px);
-          animation: fadeInFromTop 0.8s ease-in-out forwards;
-        }
-        
-        .delay-300 {
-          animation-delay: 0.3s;
-        }
-        
-        .delay-600 {
-          animation-delay: 0.6s;
-        }
       `}</style>
     </div>
   );
 };
 
-export default InteractiveSelector;
+export default CompactSelector;
