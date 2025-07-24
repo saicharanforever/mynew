@@ -24,16 +24,8 @@ export default function ContactSection() {
     specialRequests: ''
   });
 
-  const infoRef = useScrollReveal({ 
-    animation: 'slide-right', 
-    duration: 1000, 
-    delay: 0 
-  });
-  const formRef = useScrollReveal({ 
-    animation: 'slide-left', 
-    duration: 1000, 
-    delay: 200 
-  });
+  const infoRef = useScrollReveal();
+  const formRef = useScrollReveal();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -53,7 +45,7 @@ export default function ContactSection() {
     >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
-          <div ref={infoRef} className="scroll-reveal-element">
+          <div ref={infoRef} className="reveal">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-8">
               Reserve Your <span className="kinetic-text">Experience</span>
             </h2>
@@ -88,7 +80,7 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <div ref={formRef} className="scroll-reveal-element">
+          <div ref={formRef} className="reveal">
             <div
               className="p-8 rounded-lg"
               style={{ backgroundColor: 'var(--secondary-background)' }}

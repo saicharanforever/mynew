@@ -36,26 +36,18 @@ Preferred communication style: Simple, everyday language.
 ### Core Application Components
 - **Navigation**: Fixed navigation with smooth scrolling and mobile responsiveness
 - **Hero Section**: Full-screen hero with parallax effects and kinetic typography
-- **Menu Showcase**: Interactive menu display with alternating left/right animations
-- **Story Section**: Brand narrative section with slide animations from opposite directions
-- **Animation Showcase**: Comprehensive demonstration of all 14 animation types with reversible effects
-- **Gallery Section**: Masonry-style image gallery with varied animation types (zoom, flip, rotate, bounce)
-- **Contact Section**: Reservation form with slide-in animations from opposite directions
+- **Menu Showcase**: Interactive menu display with hover effects and premium styling
+- **Story Section**: Brand narrative section with scroll-triggered animations
+- **Gallery Section**: Masonry-style image gallery with reveal animations
+- **Contact Section**: Reservation form with comprehensive form handling
 - **Footer**: Links and social media integration
-- **Scroll Progress**: Visual progress indicator showing scroll completion
-- **Animation Controls**: Floating controls to reset animations and toggle functionality
 
 ### UI Infrastructure
 - **Custom Hooks**: 
-  - `useScrollReveal`: Advanced scroll-based animation system with 14 animation types and full reversibility
+  - `useScrollReveal`: Intersection Observer-based animation triggers
   - `useParallax`: Parallax scrolling effects
   - `useMobile`: Responsive design utilities
-- **Animation System**: 
-  - Fully reversible scroll-triggered animations (fade, slide, zoom, flip, rotate, scale-bounce)
-  - Customizable duration, delay, threshold, and root margin settings
-  - Smooth cubic-bezier transitions with hardware acceleration
-  - Interactive animation controls with reset and pause functionality
-  - Scroll progress indicator
+- **Animation System**: Scroll-triggered reveals, kinetic text effects, and smooth transitions
 - **Form Handling**: React Hook Form integration with validation
 
 ### Backend Components

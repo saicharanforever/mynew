@@ -41,11 +41,7 @@ const galleryImages = [
 ];
 
 export default function GallerySection() {
-  const titleRef = useScrollReveal({ 
-    animation: 'fade-down', 
-    duration: 800, 
-    delay: 0 
-  });
+  const titleRef = useScrollReveal();
 
   return (
     <section
@@ -54,7 +50,7 @@ export default function GallerySection() {
       style={{ backgroundColor: 'hsl(0, 0%, 97%)' }}
     >
       <div className="container mx-auto px-6">
-        <div ref={titleRef} className="text-center mb-16 scroll-reveal-element">
+        <div ref={titleRef} className="text-center mb-16 reveal">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-black">
             Immerse in <span style={{ color: 'var(--primary-accent)' }}>Elegance</span>
           </h2>
@@ -74,17 +70,12 @@ export default function GallerySection() {
 }
 
 function GalleryImage({ image, index }: { image: typeof galleryImages[0]; index: number }) {
-  const animations = ['zoom-in', 'fade-up', 'flip-x', 'rotate-in', 'scale-bounce', 'fade-left'];
-  const imageRef = useScrollReveal({ 
-    animation: animations[index % animations.length] as any,
-    duration: 800,
-    delay: index * 150
-  });
+  const imageRef = useScrollReveal();
 
   return (
     <motion.div
       ref={imageRef}
-      className={`scroll-reveal-element overflow-hidden rounded-lg shadow-lg group ${
+      className={`reveal overflow-hidden rounded-lg shadow-lg group ${
         index === 1 ? 'lg:row-span-2' : ''
       }`}
       initial={{ opacity: 0, y: 50 }}

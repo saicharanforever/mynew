@@ -2,16 +2,8 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 export default function StorySection() {
-  const imageRef = useScrollReveal({ 
-    animation: 'slide-left', 
-    duration: 1000, 
-    delay: 0 
-  });
-  const contentRef = useScrollReveal({ 
-    animation: 'slide-right', 
-    duration: 1000, 
-    delay: 200 
-  });
+  const imageRef = useScrollReveal();
+  const contentRef = useScrollReveal();
 
   return (
     <section
@@ -21,7 +13,7 @@ export default function StorySection() {
     >
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div ref={imageRef} className="scroll-reveal-element">
+          <div ref={imageRef} className="reveal">
             <img
               src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000"
               alt="Chef Marcus Aurelius in kitchen"
@@ -29,7 +21,7 @@ export default function StorySection() {
             />
           </div>
 
-          <div ref={contentRef} className="scroll-reveal-element">
+          <div ref={contentRef} className="reveal">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-8">
               Our <span className="kinetic-text">Philosophy</span>
             </h2>
