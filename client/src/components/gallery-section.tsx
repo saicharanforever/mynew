@@ -34,11 +34,12 @@ export default function GallerySection() {
         <div className="h-[400px] md:h-[600px] relative w-full">
           <CircularGallery 
             items={galleryItems}
-            bend={1.5} 
+            bend={2} 
             textColor="#D4AF37" 
             borderRadius={0.05} 
-            scrollEase={0.02}
-            font="bold 18px Playfair Display"
+            scrollEase={0.08}
+            scrollSpeed={1.5}
+            font="bold 16px Playfair Display"
           />
         </div>
       </div>
