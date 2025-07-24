@@ -41,10 +41,10 @@ export default function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             <button
-              onClick={() => scrollToSection('menu')}
+              onClick={() => scrollToSection('experiences')}
               className="hover:text-[var(--primary-accent)] transition-colors duration-300 relative group"
             >
-              Menu
+              Experiences
               <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-[var(--primary-accent)] transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
             </button>
             <button
@@ -103,10 +103,10 @@ export default function Navigation() {
           >
             <div className="container mx-auto px-6 py-4 space-y-4">
               <button
-                onClick={() => scrollToSection('menu')}
+                onClick={() => scrollToSection('experiences')}
                 className="block w-full text-left py-2 hover:text-[var(--primary-accent)] transition-colors"
               >
-                Menu
+                Experiences
               </button>
               <button
                 onClick={() => scrollToSection('story')}

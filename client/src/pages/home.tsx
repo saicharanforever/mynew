@@ -1,6 +1,6 @@
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/hero-section';
-import MenuShowcase from '@/components/menu-showcase';
+import InteractiveSelector from '@/components/ui/interactive-selector';
 import StorySection from '@/components/story-section';
 import GallerySection from '@/components/gallery-section';
 import ContactSection from '@/components/contact-section';
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
-      <MenuShowcase />
+      <InteractiveSelector />
       <StorySection />
       <GallerySection />
       <ContactSection />

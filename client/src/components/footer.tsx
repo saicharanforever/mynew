@@ -35,10 +35,10 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>
                 <button
-                  onClick={() => scrollToSection('menu')}
+                  onClick={() => scrollToSection('experiences')}
                   className="hover:text-[var(--primary-accent)] transition-colors"
                 >
-                  Menu
+                  Experiences
                 </button>
               </li>
               <li>

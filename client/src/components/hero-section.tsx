@@ -5,10 +5,10 @@ import { useParallax } from '@/hooks/use-parallax';
 export default function HeroSection() {
   const parallaxRef = useParallax(0.5);
 
-  const scrollToMenu = () => {
-    const menuSection = document.getElementById('menu');
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToExperiences = () => {
+    const experiencesSection = document.getElementById('experiences');
+    if (experiencesSection) {
+      experiencesSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -22,7 +22,7 @@ export default function HeroSection() {
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div
-        ref={parallaxRef}
+        ref={parallaxRef as React.RefObject<HTMLDivElement>}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&h=1200')`
@@ -63,10 +63,10 @@ export default function HeroSection() {
             Experience Aurelius
           </button>
           <button
-            onClick={scrollToMenu}
+            onClick={scrollToExperiences}
             className="btn-secondary text-lg px-8 py-3"
           >
-            View Menu
+            View Experiences
           </button>
         </motion.div>
       </div>
@@ -76,7 +76,7 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce cursor-pointer"
-        onClick={scrollToMenu}
+        onClick={scrollToExperiences}
       >
         <ChevronDown size={32} />
       </motion.div>
