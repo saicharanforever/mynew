@@ -134,15 +134,14 @@
     animation: kinetic-shimmer 3s ease-in-out infinite;
   }
 
-  .reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
+  .scroll-reveal-element {
+    will-change: transform, opacity, filter;
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 
-  .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  .scroll-reveal-active {
+    /* Active state handled by JavaScript */
   }
 
   .parallax-bg {

@@ -56,7 +56,11 @@ const menuItems: MenuItem[] = [
 ];
 
 export default function MenuShowcase() {
-  const titleRef = useScrollReveal();
+  const titleRef = useScrollReveal({ 
+    animation: 'fade-up', 
+    duration: 1000, 
+    delay: 0 
+  });
 
   return (
     <section
@@ -65,7 +69,7 @@ export default function MenuShowcase() {
       style={{ backgroundColor: 'hsl(0, 0%, 97%)' }}
     >
       <div className="container mx-auto px-6">
-        <div ref={titleRef} className="text-center mb-16 reveal">
+        <div ref={titleRef} className="text-center mb-16 scroll-reveal-element">
           <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-black">
             Signature <span style={{ color: 'var(--primary-accent)' }}>Creations</span>
           </h2>
@@ -89,12 +93,16 @@ export default function MenuShowcase() {
 }
 
 function MenuCard({ item, index }: { item: MenuItem; index: number }) {
-  const cardRef = useScrollReveal();
+  const cardRef = useScrollReveal({ 
+    animation: index % 2 === 0 ? 'fade-left' : 'fade-right',
+    duration: 800,
+    delay: index * 100
+  });
 
   return (
     <motion.div
       ref={cardRef}
-      className="reveal bg-white rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+      className="scroll-reveal-element bg-white rounded-lg overflow-hidden shadow-lg group cursor-pointer"
       whileHover={{ y: -10 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{ 
@@ -145,10 +153,14 @@ function MenuCard({ item, index }: { item: MenuItem; index: number }) {
 }
 
 function MenuButton() {
-  const buttonRef = useScrollReveal();
+  const buttonRef = useScrollReveal({ 
+    animation: 'zoom-in', 
+    duration: 600, 
+    delay: 200 
+  });
 
   return (
-    <div ref={buttonRef} className="reveal">
+    <div ref={buttonRef} className="scroll-reveal-element">
       <button
         className="text-lg font-medium hover:scale-105 transition-all duration-300"
         style={{
