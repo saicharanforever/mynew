@@ -60,9 +60,9 @@ const CompactSelector = () => {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center py-10 bg-[#222] font-sans text-white"> 
+    <div className="relative flex flex-col items-center justify-center py-10 bg-[#222] font-sans text-white overflow-hidden"> 
       {/* Options Container */}
-      <div className="options flex w-full max-w-[900px] min-w-[600px] h-[400px] mx-0 items-stretch overflow-hidden relative">
+      <div className="options flex w-full max-w-[900px] h-[300px] md:h-[400px] mx-4 items-stretch overflow-hidden relative">
         {options.map((option, index) => (
           <div
             key={index}

@@ -126,6 +126,7 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
         /* The viewport sets up the 3D perspective */
         .carousel-viewport {
           width: 100%;
+          max-width: 100vw;
           height: 400px;
           display: flex;
           justify-content: center;
@@ -133,13 +134,14 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
           perspective: 1000px; /* This creates the 3D effect */
           overflow: hidden;
           background: transparent;
-          padding: 60px 0;
+          padding: 60px 20px;
+          box-sizing: border-box;
         }
 
         /* The container holds all images and is what actually rotates */
         .carousel-container {
           position: relative;
-          width: 250px; /* Adjust width as needed */
+          width: min(250px, 60vw); /* Responsive width */
           height: 100%;
           transform-style: preserve-3d; /* This is crucial for 3D positioning */
           /* Removed transition to allow for smooth drag rotation */
