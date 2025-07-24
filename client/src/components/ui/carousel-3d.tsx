@@ -6,27 +6,90 @@ interface Carousel3DProps {
 
 const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
   const [rotation, setRotation] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentRotation, setCurrentRotation] = useState(0);
+  const [isAutoRotate, setIsAutoRotate] = useState(true);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const autoRotateRef = useRef<number | null>(null);
 
-  // This function handles the mouse movement and updates the rotation
+  // Handle mouse down to start dragging
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
+    setCurrentRotation(rotation);
+    e.preventDefault();
+  };
+
+  // Handle mouse move for dragging
   const handleMouseMove = (e: MouseEvent) => {
-    // Calculate the horizontal position of the mouse from -1 (left) to 1 (right)
-    const normalizedPosition = (e.clientX / window.innerWidth) * 2 - 1;
-    // Define the maximum rotation angle (e.g., 25 degrees in either direction)
-    const maxRotation = 25;
-    const newRotation = normalizedPosition * maxRotation;
+    if (!isDragging) return;
+    
+    // Calculate rotation based on mouse movement
+    const deltaX = e.clientX - startX;
+    // Sensitivity factor to control rotation speed
+    const sensitivity = 0.5;
+    const newRotation = currentRotation + deltaX * sensitivity;
     setRotation(newRotation);
   };
 
-  // Add the event listener when the component mounts
-  useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
+  // Handle mouse up to stop dragging
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
 
-    // Clean up the event listener when the component unmounts
+  // Add mouse event listeners when component mounts
+  useEffect(() => {
+    // Only add event listeners when dragging
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+    }
+
+    // Clean up event listeners when component unmounts or dragging stops
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []);
+  }, [isDragging, startX, currentRotation, rotation]);
+
+  // Add touch event handlers for mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].clientX);
+    setCurrentRotation(rotation);
+    e.preventDefault();
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    
+    const deltaX = e.touches[0].clientX - startX;
+    const sensitivity = 0.5;
+    const newRotation = currentRotation + deltaX * sensitivity;
+    setRotation(newRotation);
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  // Auto-rotation effect
+  useEffect(() => {
+    if (isAutoRotate && !isDragging) {
+      const autoRotate = () => {
+        setRotation(prev => prev + 0.5); // Rotate 0.5 degrees per frame
+      };
+      
+      const intervalId = window.setInterval(autoRotate, 50); // Update every 50ms
+      
+      // Clear interval on cleanup
+      return () => {
+        window.clearInterval(intervalId);
+      };
+    }
+  }, [isAutoRotate, isDragging]);
 
   const numImages = images.length;
   // Calculate the angle between each image in the circle
@@ -38,8 +101,12 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
         className="carousel-container"
         ref={carouselRef}
         style={{
-          transform: `rotateY(${rotation}deg)`,
+          transform: `rotateY(${rotation % 360}deg)`,
         }}
+        onMouseDown={handleMouseDown}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {images.map((image, index) => (
           <div
@@ -75,7 +142,7 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
           width: 250px; /* Adjust width as needed */
           height: 100%;
           transform-style: preserve-3d; /* This is crucial for 3D positioning */
-          transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth rotation */
+          /* Removed transition to allow for smooth drag rotation */
         }
 
         /* Styles for each individual image wrapper */
@@ -106,7 +173,19 @@ const Carousel3D: React.FC<Carousel3DProps> = ({ images }) => {
           transform: scale(1.05);
           box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
         }
+        
+        /* Rotate icon styling */
+        .rotate-icon {
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
       `}</style>
+      
+      {/* Rotate icon */}
+      <div className="rotate-icon" style={{ textAlign: 'center', marginTop: '0', paddingTop: '0', fontSize: '24px' }}>
+        &#8635; {/* Unicode rotate icon */}
+      </div>
     </div>
   );
 };
