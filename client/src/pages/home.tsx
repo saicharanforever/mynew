@@ -6,6 +6,7 @@ import StorySection from '@/components/story-section';
 import GallerySection from '@/components/gallery-section';
 import StickyScroll from '@/components/ui/sticky-scroll';
 import ContactSection from '@/components/contact-section';
+import CarouselSection from '@/components/carousel-section';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <GallerySection />
       <StickyScroll />
       <ContactSection />
+      <CarouselSection />
       <Footer />
     </div>
   );

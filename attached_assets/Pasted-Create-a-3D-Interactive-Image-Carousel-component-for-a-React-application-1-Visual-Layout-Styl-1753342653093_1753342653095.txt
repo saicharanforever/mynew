@@ -1,0 +1,179 @@
+Create a '3D Interactive Image Carousel' component for a React application.
+1. Visual Layout & Styling:
+The component should display a series of images arranged in a 3D semi-circular or cylindrical layout.
+The entire component should have a transparent or black background to blend with a dark theme.
+The images themselves must have rounded corners (e.g., a border-radius of 12px or 16px).
+A strong perspective CSS property should be applied to the container to create a noticeable 3D depth effect. The images on the sides should appear smaller and angled away from the viewer, while the central image is front-facing.
+2. Interactive Behavior:
+The carousel's rotation must be controlled by the user's horizontal mouse movement across the screen (or the component area).
+When the mouse cursor is in the center of the viewport, the carousel should be in its default, centered position.
+As the cursor moves to the right, the carousel should smoothly rotate to the left.
+As the cursor moves to the left, the carousel should smoothly rotate to the right.
+The rotation animation must be very smooth, using CSS transitions for fluid motion.
+3. Component Properties (Props):
+The component must be reusable and accept an array of image source URLs as a prop named images.
+4. Technology Stack:
+Framework: React.js
+Styling: CSS Modules or standard CSS (provide the full CSS code).
+Use React Hooks (useState, useEffect, useRef) to manage the state and interactions. No external animation libraries are necessary if CSS transitions are sufficient."
+React Code for Your Website
+Here is the complete code to build this component in React. You can copy and paste these files into your project.
+1. Carousel.jsx (The Component Logic)
+This file contains the core logic for the carousel, including state management for rotation and handling mouse movement.
+Generated jsx
+import React, { useState, useEffect, useRef } from 'react';
+import './Carousel.css';
+
+const Carousel = ({ images }) => {
+  const [rotation, setRotation] = useState(0);
+  const carouselRef = useRef(null);
+
+  // This function handles the mouse movement and updates the rotation
+  const handleMouseMove = (e) => {
+    // Calculate the horizontal position of the mouse from -1 (left) to 1 (right)
+    const normalizedPosition = (e.clientX / window.innerWidth) * 2 - 1;
+    // Define the maximum rotation angle (e.g., 20 degrees in either direction)
+    const maxRotation = 25;
+    const newRotation = normalizedPosition * maxRotation;
+    setRotation(newRotation);
+  };
+
+  // Add the event listener when the component mounts
+  useEffect(() => {
+    window.addEventListener('mousemove', handleMouseMove);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  const numImages = images.length;
+  // Calculate the angle between each image in the circle
+  const anglePerImage = 360 / numImages;
+
+  return (
+    <div className="carousel-viewport">
+      <div
+        className="carousel-container"
+        ref={carouselRef}
+        style={{
+          transform: `rotateY(${rotation}deg)`,
+        }}
+      >
+        {images.map((image, index) => (
+          <div
+            className="carousel-image-item"
+            key={index}
+            style={{
+              // Arrange images in a circle using rotateY and push them out with translateZ
+              transform: `rotateY(${index * anglePerImage}deg) translateZ(300px)`,
+            }}
+          >
+            <img src={image} alt={`Carousel item ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;
+Use code with caution.
+Jsx
+2. Carousel.css (The Styling)
+This CSS file creates the 3D perspective and styles the images.
+Generated css
+/* The viewport sets up the 3D perspective */
+.carousel-viewport {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px; /* This creates the 3D effect */
+  overflow: hidden;
+}
+
+/* The container holds all images and is what actually rotates */
+.carousel-container {
+  position: relative;
+  width: 250px; /* Adjust width as needed */
+  height: 100%;
+  transform-style: preserve-3d; /* This is crucial for 3D positioning */
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth rotation */
+}
+
+/* Styles for each individual image wrapper */
+.carousel-image-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back of the element when rotated */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styles for the actual image element */
+.carousel-image-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px; /* Rounded corners for the images */
+  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0004); /* Optional: Adds a reflection */
+  object-fit: cover;
+  user-select: none; /* Prevents image selection on drag */
+}
+Use code with caution.
+Css
+3. App.js (Example of How to Use the Component)
+Here is how you would import and use the Carousel component.
+Generated jsx
+import React from 'react';
+import Carousel from './Carousel';
+import './App.css';
+
+// Import your images here or provide URLs
+import image1 from './assets/image1.jpg';
+import image2 from './assets/image2.jpg';
+import image3 from './assets/image3.jpg';
+import image4 from './assets/image4.jpg';
+import image5 from './assets/image5.jpg';
+import image6 from './assets/image6.jpg';
+
+function App() {
+  // Create an array of the images you want to display
+  const myImages = [image1, image2, image3, image4, image5, image6];
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>3D Interactive Carousel</h1>
+        <Carousel images={myImages} />
+      </header>
+    </div>
+  );
+}
+
+export default App;
+Use code with caution.
+Jsx
+4. App.css (Styling for the App Container)
+Basic styling to make the example look good.
+Generated css
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #000000; /* Black background like in the video */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
