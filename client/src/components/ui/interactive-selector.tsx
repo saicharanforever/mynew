@@ -29,12 +29,6 @@ const InteractiveSelector = () => {
       description: "Outdoor sauna & hot tub",
       image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
       icon: <FaHotTub size={24} className="text-white" />
-    },
-    {
-      title: "Guided Adventure",
-      description: "Expert-led nature tours",
-      image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80",
-      icon: <FaHiking size={24} className="text-white" />
     }
   ];
 

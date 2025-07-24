@@ -29,12 +29,6 @@ const CompactSelector = () => {
       description: "Exclusive intimate experience",
       image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       icon: <FaStar size={24} className="text-white" />
-    },
-    {
-      title: "Romance Package",
-      description: "Perfect for special occasions",
-      image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      icon: <FaHeart size={24} className="text-white" />
     }
   ];
 
