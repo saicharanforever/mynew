@@ -36,7 +36,7 @@ export default function Navigation() {
             onClick={() => scrollToSection('hero')}
           >
             <img 
-              src="/aurelius-logo.png" 
+              src="/new-aurelius-logo.png" 
               alt="Aurelius Restaurant" 
               className="h-8 w-auto"
             />
