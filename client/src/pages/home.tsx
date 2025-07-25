@@ -19,8 +19,8 @@ export default function Home() {
         <CompactSelector />
         <StorySection />
         <GallerySection />
-        <ContactSection />
         <CarouselSection />
+        <ContactSection />
         <Footer />
       </div>
     </ReactLenis>

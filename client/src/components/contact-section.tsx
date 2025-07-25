@@ -99,7 +99,7 @@ export default function ContactSection() {
           <div ref={formRef} className="reveal">
             <div
               className="p-8 rounded-lg"
-              style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
             >
               <h3 className="font-playfair text-2xl font-semibold mb-6">Make a Reservation</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -108,7 +108,7 @@ export default function ContactSection() {
                     label="First Name"
                     name="firstName"
                     type="text"
-                    placeholder="John"
+                    placeholder="Rohit"
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
@@ -117,7 +117,7 @@ export default function ContactSection() {
                     label="Last Name"
                     name="lastName"
                     type="text"
-                    placeholder="Doe"
+                    placeholder="Kumar"
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
@@ -139,8 +139,8 @@ export default function ContactSection() {
                     value={formData.time}
                     onChange={handleInputChange}
                     options={[
-                      '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM',
-                      '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM'
+                      '3:00 PM','4:00 PM', '5:00 PM', '5:30 PM', '6:00 PM', '6:30 PM', '7:00 PM',
+                      '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM'
                     ]}
                   />
                 </div>
@@ -160,7 +160,7 @@ export default function ContactSection() {
                     label="Phone"
                     name="phone"
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="9876543210"
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
