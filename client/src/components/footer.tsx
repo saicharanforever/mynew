@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Instagram, Facebook, Twitter } from 'lucide-react';
+import Hyperspeed from '@/components/ui/hyperspeed';
 
 export default function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -11,11 +12,38 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-12 text-white sticky bottom-0 z-10"
-      style={{ backgroundColor: 'hsl(0, 0%, 20%)' }}
+      className="py-12 text-white sticky bottom-0 z-10 relative overflow-hidden"
+      style={{ backgroundColor: 'hsl(0, 0%, 8%)' }}
     >
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-8">
+      {/* Hyperspeed Background */}
+      <div className="absolute inset-0 w-full h-full">
+        <Hyperspeed effectOptions={{
+          distortion: 'turbulentDistortion',
+          length: 300,
+          roadWidth: 8,
+          islandWidth: 1,
+          lanesPerRoad: 2,
+          fov: 120,
+          speedUp: 1.5,
+          carLightsFade: 0.6,
+          totalSideLightSticks: 15,
+          lightPairsPerRoadWay: 25,
+          colors: {
+            roadColor: 0x0a0a0a,
+            islandColor: 0x080808,
+            background: 0x000000,
+            shoulderLines: 0x222222,
+            brokenLines: 0x333333,
+            leftCars: [0x8B4513, 0xCD853F, 0xDAA520], // Gold tones
+            rightCars: [0x191970, 0x4169E1, 0x6495ED], // Blue tones
+            sticks: 0xCD853F,
+          }
+        }} />
+      </div>
+      
+      {/* Content overlay */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid md:grid-cols-4 gap-8 bg-black bg-opacity-40 rounded-lg p-6 backdrop-blur-sm">
           <div>
             <div className="font-playfair text-2xl font-bold mb-4">
               <span style={{ color: 'var(--primary-accent)' }}>A</span>urelius
@@ -89,7 +117,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300 bg-black bg-opacity-30 rounded-lg backdrop-blur-sm">
           <p>&copy; 2024 Aurelius Restaurant. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
