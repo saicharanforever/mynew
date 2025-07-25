@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCampground, FaFire, FaTint, FaHotTub, FaHiking } from 'react-icons/fa';
+import SplitText from '@/components/ui/split-text';
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -57,7 +58,9 @@ const InteractiveSelector = () => {
     <div id="experiences" className="relative flex flex-col items-center justify-center py-10 bg-[#222] font-sans text-white overflow-hidden"> 
       {/* Header Section */}
       <div className="w-full max-w-2xl px-6 mb-2 text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg animate-fadeInTop delay-300">Escape in Style</h1>
+        <SplitText className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg" delay={0.3} stagger={0.15}>
+          Escape in Style
+        </SplitText>
         <p className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto animate-fadeInTop delay-600">Discover luxurious camping experiences in nature's most breathtaking spots.</p>
       </div>
 

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import SplitText from '@/components/ui/split-text';
 
 export default function StorySection() {
   const imageRef = useScrollReveal();
@@ -22,9 +23,9 @@ export default function StorySection() {
           </div>
 
           <div ref={contentRef} className="reveal">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-8">
-              Our <span className="kinetic-text">Philosophy</span>
-            </h2>
+            <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-8" delay={0.2} stagger={0.15}>
+              Our Philosophy
+            </SplitText>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}

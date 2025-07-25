@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import Galaxy from '@/components/ui/galaxy';
+import SplitText from '@/components/ui/split-text';
 
 interface FormData {
   firstName: string;
@@ -62,9 +63,9 @@ export default function ContactSection() {
       <div className="container mx-auto px-6 relative z-20">
         <div className="grid lg:grid-cols-2 gap-16">
           <div ref={infoRef} className="reveal">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-8">
-              Reserve Your <span className="kinetic-text">Experience</span>
-            </h2>
+            <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-8" delay={0.2} stagger={0.15}>
+              Reserve Your Experience
+            </SplitText>
             <p className="text-xl mb-8 text-gray-300">
               Allow us to craft an unforgettable evening for you and your guests
             </p>

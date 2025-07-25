@@ -1,5 +1,6 @@
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import CircularGallery from '@/components/ui/circular-gallery';
+import SplitText from '@/components/ui/split-text';
 
 const galleryItems = [
   { image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Elegant Dining" },
@@ -23,9 +24,9 @@ export default function GallerySection() {
     >
       <div className="container mx-auto px-6">
         <div ref={titleRef as React.RefObject<HTMLDivElement>} className="text-center mb-16 reveal">
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white">
-            Immerse in <span style={{ color: 'var(--primary-accent)' }}>Elegance</span>
-          </h2>
+          <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-6 text-white" delay={0.2} stagger={0.12}>
+            Immerse in Elegance
+          </SplitText>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Step into our world where every detail is crafted to create an unforgettable dining experience
           </p>
