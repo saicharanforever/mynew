@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useParallax } from '@/hooks/use-parallax';
+import TypingText from '@/components/ui/typing-text';
 
 export default function HeroSection() {
   const parallaxRef = useParallax(0.5);
@@ -41,14 +42,14 @@ export default function HeroSection() {
           Culinary <span className="kinetic-text">Artistry</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-xl md:text-2xl mb-8 font-light"
-        >
-          Where tradition meets innovation in every exquisite dish
-        </motion.p>
+        <div className="text-xl md:text-2xl mb-8 font-light">
+          <TypingText 
+            text="Where tradition meets innovation in every exquisite dish"
+            speed={60}
+            delay={1200}
+            showCursor={true}
+          />
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
