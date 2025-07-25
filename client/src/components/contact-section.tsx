@@ -43,8 +43,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 text-white relative overflow-hidden z-10"
-      style={{ marginBottom: '300px' }}
+      className="py-20 text-white relative overflow-hidden"
     >
       {/* Galaxy Background */}
       <div className="absolute inset-0 z-0">
