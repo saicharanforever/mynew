@@ -1,3 +1,4 @@
+import { ReactLenis } from 'lenis/react';
 import Navigation from '@/components/navigation';
 import HeroSection from '@/components/hero-section';
 import InteractiveSelector from '@/components/ui/interactive-selector';
@@ -10,16 +11,18 @@ import Footer from '@/components/footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <InteractiveSelector />
-      <CompactSelector />
-      <StorySection />
-      <GallerySection />
-      <ContactSection />
-      <CarouselSection />
-      <Footer />
-    </div>
+    <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
+      <div className="min-h-screen">
+        <Navigation />
+        <HeroSection />
+        <InteractiveSelector />
+        <CompactSelector />
+        <StorySection />
+        <GallerySection />
+        <ContactSection />
+        <CarouselSection />
+        <Footer />
+      </div>
+    </ReactLenis>
   );
 }
