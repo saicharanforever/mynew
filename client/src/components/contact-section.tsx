@@ -98,8 +98,8 @@ export default function ContactSection() {
 
           <div ref={formRef} className="reveal">
             <div
-              className="p-8 rounded-lg bg-[#2b2b2b69]"
-              style={{ backgroundColor: 'var(--secondary-background)' }}
+              className="p-8 rounded-lg"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
             >
               <h3 className="font-playfair text-2xl font-semibold mb-6">Make a Reservation</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
