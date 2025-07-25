@@ -14,6 +14,8 @@ This is a modern full-stack web application featuring a premium restaurant landi
   - Development workflow configured for Replit compatibility
   - Security practices implemented with robust Express.js setup
   - Application serving React frontend with Vite development server
+  - Replaced text-based logo with custom Aurelius logo image in navigation bar
+  - Hot module replacement working correctly for real-time development
 
 ## User Preferences
 

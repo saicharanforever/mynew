@@ -32,10 +32,14 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <div 
-            className="font-playfair text-2xl font-bold cursor-pointer"
+            className="cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <span style={{ color: 'var(--primary-accent)' }}>A</span>urelius
+            <img 
+              src="/aurelius-logo.png" 
+              alt="Aurelius Restaurant" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
