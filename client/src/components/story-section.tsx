@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import SplitText from '@/components/ui/split-text';
 import CountUp from '@/components/ui/count-up';
+import BlurText from '@/components/ui/blur-text';
 
 export default function StorySection() {
   const imageRef = useScrollReveal();
@@ -28,35 +29,17 @@ export default function StorySection() {
               Our Philosophy
             </SplitText>
             
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-xl mb-6 leading-relaxed"
-            >
+            <BlurText className="text-xl mb-6 leading-relaxed" delay={0.2} stagger={0.05}>
               At Aurelius, we believe that dining is not merely about sustenance—it is about creating moments that transcend the ordinary and elevate the soul.
-            </motion.p>
+            </BlurText>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-lg mb-6 text-gray-300 leading-relaxed"
-            >
+            <BlurText className="text-lg mb-6 text-gray-300 leading-relaxed" delay={0.4} stagger={0.04}>
               Founded by Chef Marcus Aurelius, our restaurant combines time-honored techniques with innovative approaches, sourcing only the finest ingredients from local artisans and sustainable producers.
-            </motion.p>
+            </BlurText>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="text-lg mb-8 text-gray-300 leading-relaxed"
-            >
+            <BlurText className="text-lg mb-8 text-gray-300 leading-relaxed" delay={0.6} stagger={0.04}>
               Every dish tells a story, every flavor carries intention, and every meal becomes a cherished memory.
-            </motion.p>
+            </BlurText>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

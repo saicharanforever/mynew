@@ -4,6 +4,7 @@ import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import Galaxy from '@/components/ui/galaxy';
 import SplitText from '@/components/ui/split-text';
+import BlurText from '@/components/ui/blur-text';
 
 interface FormData {
   firstName: string;
@@ -66,9 +67,9 @@ export default function ContactSection() {
             <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-8" delay={0.2} stagger={0.15}>
               Reserve Your Experience
             </SplitText>
-            <p className="text-xl mb-8 text-gray-300">
+            <BlurText className="text-xl mb-8 text-gray-300" delay={0.4} stagger={0.05}>
               Allow us to craft an unforgettable evening for you and your guests
-            </p>
+            </BlurText>
 
             <div className="space-y-6 mb-8">
               <ContactInfo

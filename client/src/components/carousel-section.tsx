@@ -1,6 +1,7 @@
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import Carousel3D from '@/components/ui/carousel-3d';
 import SplitText from '@/components/ui/split-text';
+import BlurText from '@/components/ui/blur-text';
 
 const restaurantImages = [
   "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Restaurant interior
@@ -26,9 +27,9 @@ export default function CarouselSection() {
           <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-6" delay={0.2} stagger={0.12}>
             Experience Aurelius
           </SplitText>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <BlurText className="text-xl text-gray-300 max-w-2xl mx-auto" delay={0.4} stagger={0.04}>
             Move your mouse to explore our culinary world in an immersive 3D gallery
-          </p>
+          </BlurText>
         </div>
 
         <Carousel3D images={restaurantImages} />

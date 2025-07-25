@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaCampground, FaFire, FaTint, FaHotTub, FaHiking } from 'react-icons/fa';
 import SplitText from '@/components/ui/split-text';
+import BlurText from '@/components/ui/blur-text';
 
 const InteractiveSelector = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -61,7 +62,9 @@ const InteractiveSelector = () => {
         <SplitText className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg" delay={0.3} stagger={0.15}>
           Escape in Style
         </SplitText>
-        <p className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto animate-fadeInTop delay-600">Discover luxurious camping experiences in nature's most breathtaking spots.</p>
+        <BlurText className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto" delay={0.6} stagger={0.04}>
+          Discover luxurious camping experiences in nature's most breathtaking spots.
+        </BlurText>
       </div>
 
       <div className="h-12"></div>
