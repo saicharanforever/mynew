@@ -17,7 +17,7 @@ export default function CarouselSection() {
 
   return (
     <section
-      className="py-20 text-white"
+      className="py-20 text-white relative"
       style={{ backgroundColor: 'var(--primary-background)' }}
     >
       <div className="container mx-auto px-6">
@@ -32,6 +32,9 @@ export default function CarouselSection() {
 
         <Carousel3D images={restaurantImages} />
       </div>
+      
+      {/* Black gradient at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
     </section>
   );
 }
