@@ -12,15 +12,17 @@ import Footer from '@/components/footer';
 export default function Home() {
   return (
     <ReactLenis root options={{ lerp: 0.1, duration: 1.2, smoothWheel: true }}>
-      <div className="min-h-screen">
-        <Navigation />
-        <HeroSection />
-        <InteractiveSelector />
-        <CompactSelector />
-        <StorySection />
-        <GallerySection />
-        <CarouselSection />
-        <ContactSection />
+      <div className="min-h-screen flex flex-col">
+        <div className="flex-1">
+          <Navigation />
+          <HeroSection />
+          <InteractiveSelector />
+          <CompactSelector />
+          <StorySection />
+          <GallerySection />
+          <CarouselSection />
+          <ContactSection />
+        </div>
         <Footer />
       </div>
     </ReactLenis>
