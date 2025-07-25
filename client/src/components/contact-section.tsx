@@ -57,10 +57,8 @@ export default function ContactSection() {
           twinkleIntensity={0.4}
         />
       </div>
-      
       {/* Content with dark overlay for readability */}
       <div className="absolute inset-0 bg-black/40 z-10"></div>
-      
       <div className="container mx-auto px-6 relative z-20">
         <div className="grid lg:grid-cols-2 gap-16">
           <div ref={infoRef} className="reveal">
@@ -100,7 +98,7 @@ export default function ContactSection() {
 
           <div ref={formRef} className="reveal">
             <div
-              className="p-8 rounded-lg"
+              className="p-8 rounded-lg bg-[#2b2b2b4a]"
               style={{ backgroundColor: 'var(--secondary-background)' }}
             >
               <h3 className="font-playfair text-2xl font-semibold mb-6">Make a Reservation</h3>
