@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 import SplitText from '@/components/ui/split-text';
+import CountUp from '@/components/ui/count-up';
 
 export default function StorySection() {
   const imageRef = useScrollReveal();
@@ -69,7 +70,7 @@ export default function StorySection() {
                   className="text-3xl font-bold mb-2"
                   style={{ color: 'var(--primary-accent)' }}
                 >
-                  15+
+                  <CountUp end={15} suffix="+" duration={2.5} delay={0.2} />
                 </div>
                 <div className="text-sm text-gray-400">Years of Excellence</div>
               </div>
@@ -78,7 +79,7 @@ export default function StorySection() {
                   className="text-3xl font-bold mb-2"
                   style={{ color: 'var(--primary-accent)' }}
                 >
-                  3
+                  <CountUp end={3} duration={2} delay={0.4} />
                 </div>
                 <div className="text-sm text-gray-400">Michelin Stars</div>
               </div>
@@ -87,7 +88,7 @@ export default function StorySection() {
                   className="text-3xl font-bold mb-2"
                   style={{ color: 'var(--primary-accent)' }}
                 >
-                  50K+
+                  <CountUp end={50} suffix="K+" duration={3} delay={0.6} />
                 </div>
                 <div className="text-sm text-gray-400">Happy Guests</div>
               </div>
@@ -96,7 +97,7 @@ export default function StorySection() {
                   className="text-3xl font-bold mb-2"
                   style={{ color: 'var(--primary-accent)' }}
                 >
-                  100%
+                  <CountUp end={100} suffix="%" duration={2.5} delay={0.8} />
                 </div>
                 <div className="text-sm text-gray-400">Local Sourced</div>
               </div>
