@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-12 text-white sticky bottom-0 z-10"
+      className="py-12 text-white fixed bottom-0 left-0 right-0 z-0"
       style={{ backgroundColor: 'hsl(0, 0%, 20%)' }}
     >
       <div className="container mx-auto px-6">
