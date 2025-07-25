@@ -260,7 +260,7 @@ function FormField({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="input-field"
+        className="input-field bg-[#2b2b2b96]"
       />
     </div>
   );
