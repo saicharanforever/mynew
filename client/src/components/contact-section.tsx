@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import Galaxy from '@/components/ui/galaxy';
 
 interface FormData {
   firstName: string;
@@ -40,10 +41,27 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 text-white"
-      style={{ backgroundColor: 'var(--primary-background)' }}
+      className="py-20 text-white relative overflow-hidden"
     >
-      <div className="container mx-auto px-6">
+      {/* Galaxy Background */}
+      <div className="absolute inset-0 z-0">
+        <Galaxy 
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          density={1.2}
+          glowIntensity={0.4}
+          saturation={0.6}
+          hueShift={240}
+          transparent={true}
+          speed={0.5}
+          twinkleIntensity={0.4}
+        />
+      </div>
+      
+      {/* Content with dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
+      
+      <div className="container mx-auto px-6 relative z-20">
         <div className="grid lg:grid-cols-2 gap-16">
           <div ref={infoRef} className="reveal">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-8">
