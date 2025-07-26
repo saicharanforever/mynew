@@ -74,15 +74,15 @@ export default function ContactSection() {
             <div className="space-y-6 mb-8">
               <ContactInfo
                 icon={<MapPin size={20} />}
-                text="123 Culinary Avenue, Fine Dining District, New York 10021"
+                text="Opp. Newest Hub, Jubilee Hills, Hyderabad"
               />
               <ContactInfo
                 icon={<Phone size={20} />}
-                text="+1 (555) 123-DINE"
+                text="+91 7386951961"
               />
               <ContactInfo
                 icon={<Mail size={20} />}
-                text="reservations@aurelius-restaurant.com"
+                text="saicharanvarkala192@gmail.com"
               />
               <ContactInfo
                 icon={<Clock size={20} />}
@@ -90,12 +90,7 @@ export default function ContactSection() {
                 subtext="Closed Mondays"
               />
             </div>
-
-            <div className="flex space-x-4 mb-8">
-              <SocialIcon icon={<Instagram size={24} />} />
-              <SocialIcon icon={<Facebook size={24} />} />
-              <SocialIcon icon={<Twitter size={24} />} />
-            </div>
+            
           </div>
 
           <div ref={formRef} className="reveal">
