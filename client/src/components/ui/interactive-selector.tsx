@@ -60,10 +60,10 @@ const InteractiveSelector = () => {
       {/* Header Section */}
       <div className="w-full max-w-2xl px-6 mb-2 text-center">
         <SplitText className="text-4xl md:text-5xl font-extrabold text-white mb-3 tracking-tight drop-shadow-lg" delay={0.3} stagger={0.15}>
-          Escape in Style
+          Flavors of Home
         </SplitText>
         <BlurText className="text-lg md:text-xl text-gray-300 font-medium max-w-xl mx-auto" delay={0.6} stagger={0.04}>
-          Discover luxurious camping experiences in nature's most breathtaking spots.
+          Savor the tastes that bring back cherished memories.
         </BlurText>
       </div>
 
