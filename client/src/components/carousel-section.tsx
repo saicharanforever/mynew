@@ -4,14 +4,14 @@ import SplitText from '@/components/ui/split-text';
 import BlurText from '@/components/ui/blur-text';
 
 const restaurantImages = [
-  "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Restaurant interior
-  "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Tuna tartare
-  "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Beef dish
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Elegant dining
-  "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Bar area
-  "https://images.unsplash.com/photo-1572441713132-51c75654db73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Pasta dish
-  "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Chef in kitchen
-  "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", // Restaurant design
+  "https://ik.imagekit.io/vmkmcz5dg/8.png?updatedAt=1753542917233", // Restaurant interior
+  "https://ik.imagekit.io/vmkmcz5dg/4.png?updatedAt=1753542917244", // Tuna tartare
+  "https://ik.imagekit.io/vmkmcz5dg/1.png?updatedAt=1753542916907", // Beef dish
+  "https://ik.imagekit.io/vmkmcz5dg/5.png?updatedAt=1753542916646", // Elegant dining
+  "https://ik.imagekit.io/vmkmcz5dg/6.png?updatedAt=1753542916396", // Bar area
+  "https://ik.imagekit.io/vmkmcz5dg/7.png?updatedAt=1753542916447", // Pasta dish
+  "https://ik.imagekit.io/vmkmcz5dg/2.png?updatedAt=1753542916453", // Chef in kitchen
+  "https://ik.imagekit.io/vmkmcz5dg/3.png?updatedAt=1753542913432", // Restaurant design
 ];
 
 export default function CarouselSection() {
