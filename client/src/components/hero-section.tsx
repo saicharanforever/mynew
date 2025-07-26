@@ -44,7 +44,7 @@ export default function HeroSection() {
 
         <div className="text-xl md:text-2xl mb-8 font-light">
           <TypingText 
-            text="Where tradition meets innovation in every exquisite dish"
+            text="Where tradition meets innovation in every exquisite dish.."
             speed={60}
             delay={1200}
             showCursor={true}
