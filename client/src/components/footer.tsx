@@ -109,16 +109,16 @@ export default function Footer() {
           <div>
             <h4 className="font-playfair text-xl font-semibold mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400">
-              <div>123 Culinary Avenue</div>
-              <div>New York, NY 10021</div>
-              <div>+1 (555) 123-DINE</div>
-              <div>reservations@aurelius-restaurant.com</div>
+              <div>Opp. Newest, Jubilee Hills</div>
+              <div>Hyderabad, HYD</div>
+              <div>+91 7386951961</div>
+              <div>saicharanvarkala192@gmail.com</div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300 bg-black bg-opacity-30 rounded-lg backdrop-blur-sm">
-          <p>&copy; 2024 Aurelius Restaurant. All rights reserved. | Privacy Policy | Terms of Service</p>
+          <p>&copy; 2025 Aurelius Restaurant. All rights reserved. | Privacy Policy | Terms of Service</p>
         </div>
       </div>
     </footer>
