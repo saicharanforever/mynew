@@ -11,25 +11,25 @@ const InteractiveSelector = () => {
     {
       title: "Luxury Tent",
       description: "Cozy glamping under the stars",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_77nyfq77nyfq77ny_3_11zon.png?updatedAt=1753542831026",
       icon: <FaCampground size={24} className="text-white" />
     },
     {
       title: "Campfire Feast",
       description: "Gourmet s'mores & stories",
-      image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_4hjsry4hjsry4hjs_1_11zon.png?updatedAt=1753542850301",
       icon: <FaFire size={24} className="text-white" />
     },
     {
       title: "Lakeside Retreat",
       description: "Private dock & canoe rides",
-      image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_wzn770wzn770wzn7_10_11zon.png?updatedAt=1753542849668",
       icon: <FaTint size={24} className="text-white" />
     },
     {
       title: "Mountain Spa",
       description: "Outdoor sauna & hot tub",
-      image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_zy8wszy8wszy8wsz_11_11zon.png?updatedAt=1753542849443",
       icon: <FaHotTub size={24} className="text-white" />
     }
   ];
