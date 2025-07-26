@@ -4,14 +4,14 @@ import SplitText from '@/components/ui/split-text';
 import BlurText from '@/components/ui/blur-text';
 
 const galleryItems = [
-  { image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Elegant Dining" },
-  { image: "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Premium Bar" },
-  { image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Chef's Art" },
-  { image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Intimate Atmosphere" },
-  { image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Interior Design" },
-  { image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Wine Collection" },
-  { image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Culinary Excellence" },
-  { image: "https://images.unsplash.com/photo-1572441713132-51c75654db73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600", text: "Signature Dishes" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_nze533nze533nze5_1_11zon.png?updatedAt=1753542857550", text: "Elegant Dining" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_5bzkos5bzkos5bzk_3_11zon.png?updatedAt=1753542856006", text: "Premium Bar" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_3b0dih3b0dih3b0d_4_11zon.png?updatedAt=1753542850431", text: "Chef's Art" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_1olsxa1olsxa1ols_5_11zon.png?updatedAt=1753542850274", text: "Intimate Atmosphere" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_t7c6vzt7c6vzt7c6_7_11zon.png?updatedAt=1753542849524", text: "Interior Design" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_ktcvc6ktcvc6ktcv_6_11zon.png?updatedAt=1753542831701", text: "Wine Collection" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_mofmxumofmxumofm_8_11zon.png?updatedAt=1753542831023", text: "Culinary Excellence" },
+  { image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_g2beu6g2beu6g2be_2_11zon.png?updatedAt=1753542830732", text: "Signature Dishes" },
 ];
 
 export default function GallerySection() {
