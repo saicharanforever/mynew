@@ -39,7 +39,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="font-playfair text-5xl md:text-7xl font-bold mb-6"
         >
-          Culinary <span className="kinetic-text">Artistry</span>
+          An Evening of Life-Time <span className="kinetic-text">Experience</span>
         </motion.h1>
 
         <div className="text-xl md:text-2xl mb-8 font-light">
