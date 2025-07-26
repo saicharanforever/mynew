@@ -25,10 +25,10 @@ export default function CarouselSection() {
       <div className="container mx-auto px-6">
         <div ref={titleRef as React.RefObject<HTMLDivElement>} className="text-center mb-16 reveal">
           <SplitText className="font-playfair text-4xl md:text-5xl font-bold mb-6" delay={0.2} stagger={0.12}>
-            Experience Aurelius
+            Voices from the Heart
           </SplitText>
           <BlurText className="text-xl text-gray-300 max-w-2xl mx-auto" delay={0.4} stagger={0.04}>
-            Move your mouse to explore our culinary world in an immersive 3D gallery
+            Real stories. True flavors. Unforgettable memories.
           </BlurText>
         </div>
 
