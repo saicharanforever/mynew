@@ -105,7 +105,7 @@ export default function ContactSection() {
                     label="First Name"
                     name="firstName"
                     type="text"
-                    placeholder="Rohit"
+                    placeholder="Sai"
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
@@ -114,7 +114,7 @@ export default function ContactSection() {
                     label="Last Name"
                     name="lastName"
                     type="text"
-                    placeholder="Kumar"
+                    placeholder="Charan"
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
