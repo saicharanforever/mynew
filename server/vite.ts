@@ -1,6 +1,7 @@
 import express, { type Express } from "express";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import { createServer as createViteServer, createLogger } from "vite";
 import { type Server } from "http";
 import viteConfig from "../vite.config";
@@ -68,23 +69,20 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(
-    import.meta.dirname,
-    "..",
-    "dist",
-    "public",
-  );
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  // The production build puts the server in `dist/` and the client in `dist/public/`
+  const publicPath = path.resolve(__dirname, "public");
 
-  if (!fs.existsSync(distPath)) {
+  if (!fs.existsSync(publicPath)) {
     throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
+      `Could not find the public directory: ${publicPath}, make sure to build the client and server first`,
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(express.static(publicPath));
 
-  // fall through to index.html if the file doesn't exist
+  // Fallback for SPAs
   app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+    res.sendFile(path.resolve(publicPath, "index.html"));
   });
 }
