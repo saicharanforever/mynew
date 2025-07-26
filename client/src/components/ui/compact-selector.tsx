@@ -9,25 +9,25 @@ const CompactSelector = () => {
     {
       title: "Chef's Tasting",
       description: "Multi-course culinary journey",
-      image: "https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_t3va3yt3va3yt3va_9_11zon.png?updatedAt=1753542848942",
       icon: <FaUtensils size={24} className="text-white" />
     },
     {
       title: "Wine Pairing",
       description: "Premium selections & pairings",
-      image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_r9rf2or9rf2or9rf_8_11zon.png?updatedAt=1753542846319",
       icon: <FaWineGlass size={24} className="text-white" />
     },
     {
       title: "Farm to Table",
       description: "Seasonal organic ingredients",
-      image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_77nyfq77nyfq77ny_3_11zon.png?updatedAt=1753542831026",
       icon: <FaLeaf size={24} className="text-white" />
     },
     {
       title: "Private Dining",
       description: "Exclusive intimate experience",
-      image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://ik.imagekit.io/vmkmcz5dg/Gemini_Generated_Image_a1o842a1o842a1o8_4_11zon.png?updatedAt=1753542829168",
       icon: <FaStar size={24} className="text-white" />
     }
   ];
